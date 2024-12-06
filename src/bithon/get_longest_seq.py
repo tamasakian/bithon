@@ -2,8 +2,8 @@ from bithon import fs
 import os
 
 def gls_main(args):
-  faa = args.indir+"/protein.faa"
-  fna = args.indir+"/cds_from_genomic.fna"
+  faa = args.indir+"/pep.fasta"
+  fna = args.indir+"/cds.fasta"
 
   fna2dict = fs.fasta2dict(fna)
   fna2dict = parse_fna(fna2dict)
@@ -41,10 +41,10 @@ def gls_main(args):
   if not os.path.exists(args.outdir):
     print(f"\t{args.outdir}/ does not exitst. It will be newly created.")
     os.makedirs(args.outdir)
-  fs.write_fasta(fna2dict, args.outdir+"/"+args.prefix+".cds.fa")
-  print(f"\tWrite out CDS: {len(fna2dict)} sequences.")
-  fs.write_fasta(faa2dict, args.outdir+"/"+args.prefix+".pep.fa")
-  print(f"\tWrite out Protein: {len(faa2dict)} sequences.")
+  fs.write_fasta(fna2dict, args.outdir+"/"+args.prefix+".cds.fasta")
+  print(f"Write out CDS: {len(fna2dict)} sequences.")
+  fs.write_fasta(faa2dict, args.outdir+"/"+args.prefix+".pep.fasta")
+  print(f"Write out Protein: {len(faa2dict)} sequences.")
 
 def parse_fna(d: dict) -> dict:
   ids = dict()
