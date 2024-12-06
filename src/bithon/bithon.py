@@ -61,7 +61,7 @@ def main():
 
   # ensembl_gls
   help_txt = "Extract the longest isoforms from ENSEMBL sequences fasta files."
-  help_txt += " See `bithon egls -h`"
+  help_txt += " See `bithon ensgls -h`"
   parser_egls = subparsers.add_parser("ensgls", help = help_txt)
   parser_egls.add_argument("-i", "--infile")
   parser_egls.add_argument("-o", "--outfile")
